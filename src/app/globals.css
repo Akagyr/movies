@@ -10,3 +10,7 @@ body {
 input {
     outline: none;
 }
+
+li {
+    list-style: none;
+}

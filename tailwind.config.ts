@@ -8,7 +8,11 @@ const config: Config = {
     "./src/ui/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        "spin-slow": "spin 7s linear infinite",
+      },
+    },
   },
   plugins: [],
 };
