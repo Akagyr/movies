@@ -1,10 +1,10 @@
 "use client";
+
 import MovieCard from "@/ui/movie-card";
 import { useFetchMovies } from "@/hooks/useFetchMovies";
 
 export default function Home() {
   const movies = useFetchMovies();
-  
   const showMovieCards = movies?.map((movie) =>
     <MovieCard key={movie.id} movie={movie} />
   );
