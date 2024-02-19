@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import { Movie } from "@/lib/definitions";
 
@@ -13,7 +14,7 @@ export default function MovieCard({
     return (
         <Link href={`/${movie.id}`}>
             <div className="max-w-[250px] bg-[#141313] rounded-lg shadow">
-                <img className="rounded-t-lg h-[340px] w-[100%]" src={movie.image} alt="" />
+                <Image className="rounded-t-lg h-[340px] w-[100%]" width="250" height="340" src={movie.image} alt="" />
                 <div className="p-5">
                     <h2 className="mb-4 text-2xl font-bold tracking-tight text-white">{movie.name}</h2>
                     <RateStars rate={movie.rate} />

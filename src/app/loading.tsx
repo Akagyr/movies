@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./loading.css";
-
 export default function Loading() {
     return (
         <div className="absolute top-[45%] left-[50%] translate-x-[-50%] translate-y-[-50%]">

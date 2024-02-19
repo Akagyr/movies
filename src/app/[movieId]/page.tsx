@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 import { useFetchMovie } from "@/hooks/useFetchMovie";
 import RateStars from "@/ui/rate-stars";
@@ -16,7 +17,7 @@ export default function Movie() {
         <div className="mx-40">
             <div className="flex">
                 <div className="mr-20">
-                    <img className="rounded-xl max-w-[250px] max-h-[380px]" src={movie.image} alt="" />
+                    <Image className="rounded-xl" width="250" height="380" src={movie.image} alt="" />
                 </div>
                 <div className="mt-5">
                     <h2 className="text-2xl font-bold mb-5">{movie.name}</h2>
