@@ -5,9 +5,13 @@ import { redirect, useRouter } from "next/navigation";
 
 import MoviesListGroup from "@/ui/admin/list-group";
 import MoviesSearchForm from "@/ui/admin/search-form";
+import { useFetchMovies } from "@/hooks/useFetchMovies";
+import { Movie } from "@/lib/definitions";
 
 export default function Admin() {
     const router = useRouter();
+    const movies = useFetchMovies();
+    let modMovies: Movie[] = [];
 
     useEffect(() => {
         if (typeof window !== "undefined" && sessionStorage.getItem("user") !== "3UOKToDSRMe15Lt9TEkoXTigWPF2") {
@@ -28,7 +32,7 @@ export default function Admin() {
                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7 7V5" />
                     </svg> Добавить новый фильм
                 </button>
-                <MoviesListGroup />
+                <MoviesListGroup movies={modMovies.length !== 0 ? modMovies : movies} />
             </div>
         </>
     );

@@ -23,12 +23,7 @@ export default function MoviesListGroupItem({
     
     return (
         <li
-            className={`w-full px-4 py-2 
-                ${index === 0 && "rounded-t-lg rounded-b-lg"} 
-                ${index === 0 && moviesLength > 1 && "border-b rounded-t-lg border-gray-600"} 
-                ${index < moviesLength - 1 && moviesLength > 1 && index > 0 && "border-b rounded-t-lg border-gray-600"} 
-                ${index === moviesLength - 1 && moviesLength > 1 && "rounded-b-lg"}`
-            }
+            className={`w-full px-4 py-2 ${moviesLength > 1 && index < moviesLength - 1 && "border-b border-gray-600"}`}
         >
             <div className="flex items-center justify-between">
                 <div className="mr-3">

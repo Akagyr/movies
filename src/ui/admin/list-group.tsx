@@ -1,11 +1,14 @@
 import React from "react";
 
-import { useFetchMovies } from "@/hooks/useFetchMovies";
+import { Movie } from "@/lib/definitions";
 
 import MoviesListGroupItem from "./list-group-item";
 
-export default function MoviesListGroup() {
-    const movies = useFetchMovies();
+export default function MoviesListGroup({
+    movies,
+}: {
+    movies: Movie[]
+}) {
 
     const showMoviesList = movies.map((movie, index) =>
         <MoviesListGroupItem key={movie.id} movie={movie} index={index} moviesLength={movies.length} />
