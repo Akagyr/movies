@@ -29,7 +29,7 @@ export default function EditMovie() {
             });
         } catch (error) {}
 
-        router.replace("/admin");
+        router.push("/admin");
     };
 
     return (

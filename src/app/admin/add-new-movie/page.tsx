@@ -27,7 +27,7 @@ export default function AddNewMovie() {
             });
         } catch (error) {}
 
-        router.replace("/admin");
+        router.push("/admin");
     };
 
     return (

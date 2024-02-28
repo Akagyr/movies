@@ -166,7 +166,7 @@ export default function AdminForm({
             </button>
             <button
                 type="button"
-                onClick={() => router.replace("/admin")}
+                onClick={() => router.push("/admin")}
                 className="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-red-600 hover:bg-red-700 focus:ring-red-800"
             >
                 Отмена
