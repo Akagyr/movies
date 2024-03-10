@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 
 import { db } from "../lib/firebase";
 import { Movie } from "../lib/definitions";
@@ -8,20 +8,15 @@ export function useFetchMovies() {
     const [movies, setMovies] = useState<Movie[]>([]);
 
     useEffect(() => {
-        try {
-            const queryCollection = collection(db, "movies");
-            const unsubscribe = onSnapshot(queryCollection, (snapshot) => {
-                const tempArr: any[] = [];
-                snapshot.forEach((doc) => {
-                    tempArr.push({ id: doc.id, ...doc.data() });
-                });
-                setMovies(tempArr);
-                return tempArr;
+        async function fetchMovies() {
+            const queryCollection = await getDocs(collection(db, "movies"));
+            const itemsArr: Movie[] = [];
+            queryCollection.forEach((doc) => {
+                itemsArr.push({ id: doc.id, ...doc.data() } as Movie);
             });
-            return () => unsubscribe();
-        } catch (error) {
-            console.error(error);
+            setMovies(itemsArr);
         }
+        fetchMovies();
     }, []);
 
     return movies;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 
 import { db } from "../lib/firebase";
 import { Category } from "../lib/definitions";
@@ -8,20 +8,15 @@ export function useFetchCategories() {
     const [categories, setCategories] = useState<Category[]>([]);
 
     useEffect(() => {
-        try {
-            const queryCollection = collection(db, "categories");
-            const unsubscribe = onSnapshot(queryCollection, (snapshot) => {
-                const tempArr: any[] = [];
-                snapshot.forEach((doc) => {
-                    tempArr.push({ id: doc.id, ...doc.data() });
-                });
-                setCategories(tempArr);
-                return tempArr;
+        async function fetchCategories() {
+            const queryCollection = await getDocs(collection(db, "categories"));
+            const itemsArr: Category[] = [];
+            queryCollection.forEach((doc) => {
+                itemsArr.push({ id: doc.id, ...doc.data() } as Category);
             });
-            return () => unsubscribe();
-        } catch (error) {
-            console.error(error);
+            setCategories(itemsArr);
         }
+        fetchCategories();
     }, []);
 
     return categories;

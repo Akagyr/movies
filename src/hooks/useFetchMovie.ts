@@ -11,19 +11,12 @@ export function useFetchMovie() {
 
     useEffect(() => {
         async function fetchMovie() {
-            try {
-                const docRef = doc(db, "movies", `${movieId}`);
-                const docSnap = await getDoc(docRef);
-                setMovie({ id: docSnap.id, ...docSnap.data() } as Movie);
-            } catch (error) {
-                console.error(error);
-            }
+            const docRef = doc(db, "movies", `${movieId}`);
+            const docSnap = await getDoc(docRef);
+            setMovie({ id: docSnap.id, ...docSnap.data() } as Movie);
         }
         fetchMovie();
     }, [movieId]);
 
     return movie;
 };
-
-
-
