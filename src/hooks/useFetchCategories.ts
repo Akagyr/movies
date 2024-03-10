@@ -19,5 +19,5 @@ export function useFetchCategories() {
         fetchCategories();
     }, []);
 
-    return categories;
+    return categories!;
 };

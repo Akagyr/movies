@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 import { useFetchMovie } from "@/hooks/useFetchMovie";
 import RateStars from "@/ui/rate-stars";
@@ -11,6 +12,10 @@ export default function Movie() {
 
     if (movie === null) {
         return null;
+    } else {
+        if (Object.keys(movie).length === 1) {
+            notFound();
+        }
     }
 
     return (

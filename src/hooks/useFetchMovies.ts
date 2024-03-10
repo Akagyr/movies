@@ -19,5 +19,5 @@ export function useFetchMovies() {
         fetchMovies();
     }, []);
 
-    return movies;
+    return movies!;
 };
