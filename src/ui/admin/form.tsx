@@ -14,7 +14,7 @@ export default function AdminForm({
     const router = useRouter();
 
     return (
-        <form className="pb-10 max-w-[40%]" onSubmit={handleSubmit}>
+        <form className="pb-9" onSubmit={handleSubmit}>
             <div className="mb-4">
                 <label
                     htmlFor="image"

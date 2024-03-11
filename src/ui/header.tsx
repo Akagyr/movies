@@ -2,6 +2,6 @@ import React from "react";
 
 export default function Header() {
     return (
-        <div className="h-[80px] flex items-center justify-center"></div>
+        <header className="h-[9vh] flex items-center justify-center"></header>
     );
 }

@@ -12,7 +12,7 @@ export default function Auth() {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        
+
         signInWithEmailAndPassword(auth, e.target.email.value, e.target.password.value)
             .then((userCredential) => {
                 const user = userCredential.user;
@@ -54,7 +54,7 @@ export default function Auth() {
                     id="password"
                     name="password"
                     className="border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
-                    required 
+                    required
                 />
             </div>
             {test && <p className="mb-5 text-sm text-red-500 "><span className="font-medium">Уппс!</span> Неправильная почта или пароль!</p>}

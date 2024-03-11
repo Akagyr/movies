@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function NotFound() {
     return (
-        <main className="absolute top-[45%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-center">
+        <main className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-center">
             <h2 className="text-4xl mb-1">404</h2>
             <p className="text-md mb-6">Странница не найдена</p>
             <Link

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Loading() {
     return (
-        <div className="absolute top-[45%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+        <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

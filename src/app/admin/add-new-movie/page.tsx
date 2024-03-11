@@ -15,15 +15,15 @@ export default function AddNewMovie() {
 
         try {
             await setDoc(doc(db, "movies", String(Date.now())), {
-                image: e.target.image.value,
-                name: e.target.name.value,
-                rate: e.target.rate.value ? e.target.rate.value : 0,
-                category: e.target.category.value,
-                duration: e.target.duration.value,
-                age: e.target.age.value,
-                release_date: e.target.release_date.value,
-                country: e.target.country.value,
-                trailer: e.target.trailer.value,
+                image: e.target.image.value.trim(),
+                name: e.target.name.value.trim(),
+                rate: e.target.rate.value ? e.target.rate.value.trim() : 0,
+                category: e.target.category.value.trim(),
+                duration: e.target.duration.value.trim(),
+                age: e.target.age.value.trim(),
+                release_date: e.target.release_date.value.trim(),
+                country: e.target.country.value.trim(),
+                trailer: e.target.trailer.value.trim(),
             });
         } catch (error) {}
 

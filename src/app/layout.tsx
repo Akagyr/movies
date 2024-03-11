@@ -17,11 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex h-[100vh]`}>
+      <body className={`${inter.className} flex`}>
         <Sidebar />
-        <div className="w-[80%]">
+        <div className="w-[85%] min-h-[100vh]">
           <Header />
-          {children}
+          <main className="mx-20 relative min-h-[91vh]">
+            {children}
+          </main>
         </div>
       </body>
     </html>
