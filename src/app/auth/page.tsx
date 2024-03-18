@@ -25,7 +25,7 @@ export default function Auth() {
     };
 
     return (
-        <form className="max-w-md" onSubmit={handleSubmit}>
+        <form className="max-w-[90%] mx-auto md:max-w-[60%] xl:max-w-[50%] 2xl:max-w-[30%] md:mx-0" onSubmit={handleSubmit}>
             <div className="mb-5">
                 <label
                     htmlFor="email"
@@ -37,7 +37,7 @@ export default function Auth() {
                     type="email"
                     id="email"
                     name="email"
-                    className="border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
+                    className="border-none text-sm rounded-lg block w-full p-2.5 bg-neutral-800 placeholder-gray-400 text-white"
                     placeholder="movie.trailers@gmail.com"
                     required
                 />
@@ -53,14 +53,14 @@ export default function Auth() {
                     type="password"
                     id="password"
                     name="password"
-                    className="border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
+                    className="border-none text-sm rounded-lg block w-full p-2.5 bg-neutral-800 placeholder-gray-400 text-white"
                     required
                 />
             </div>
             {test && <p className="mb-5 text-sm text-red-500 "><span className="font-medium">Уппс!</span> Неправильная почта или пароль!</p>}
             <button
                 type="submit"
-                className="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-red-700 hover:bg-red-800"
+                className="text-white font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-red-700 hover:bg-red-800"
             >
                 Submit
             </button>

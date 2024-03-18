@@ -15,7 +15,7 @@ export default function MoviesListGroup({
     );
 
     return (
-        <ul className="text-sm font-medium border rounded-lg bg-gray-700 border-gray-600 text-white">
+        <ul className="text-sm font-medium border rounded-lg bg-neutral-800 border-neutral-700 text-white">
             {showMoviesList}
         </ul>
     );

@@ -11,8 +11,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     }, []);
 
     return (
-        <main className="max-w-[40%] mx-20">
+        <div className="max-w-[100%] mx-4 md:max-w-[80%] md:mx-auto xl:max-w-[70%] 2xl:max-w-[50%] 2xl:mx-20">
             {children}
-        </main>
+        </div>
     );
 }

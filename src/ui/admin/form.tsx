@@ -14,11 +14,11 @@ export default function AdminForm({
     const router = useRouter();
 
     return (
-        <form className="pb-9" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div className="mb-4">
                 <label
                     htmlFor="image"
-                    className="block mb-2 text-sm font-medium text-white"
+                    className="block mb-1 ml-1 text-xs font-medium text-white"
                 >
                     Ccылка картинки
                 </label>
@@ -27,14 +27,15 @@ export default function AdminForm({
                     id="image"
                     name="image"
                     defaultValue={movie ? movie.image : ""}
-                    className="border text-sm rounded-lg block w-full p-2 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Ccылка картинки"
+                    className="border-none text-xs rounded-lg block w-full p-3 bg-neutral-800 placeholder-gray-400 text-white"
                     required
                 />
             </div>
             <div className="mb-4">
                 <label
                     htmlFor="name"
-                    className="block mb-2 text-sm font-medium text-white"
+                    className="block mb-1 ml-1 text-xs font-medium text-white"
                 >
                     Имя
                 </label>
@@ -43,14 +44,15 @@ export default function AdminForm({
                     id="name"
                     name="name"
                     defaultValue={movie ? movie.name : ""}
-                    className="border text-sm rounded-lg block w-full p-2 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Имя"
+                    className="border-none text-xs rounded-lg block w-full p-3 bg-neutral-800 placeholder-gray-400 text-white"
                     required
                 />
             </div>
             <div className="mb-4">
                 <label
                     htmlFor="rate"
-                    className="block mb-2 text-sm font-medium text-white"
+                    className="block mb-1 ml-1 text-xs font-medium text-white"
                 >
                     Рейтинг (не обязательно)
                 </label>
@@ -59,13 +61,14 @@ export default function AdminForm({
                     id="rate"
                     name="rate"
                     defaultValue={movie ? movie.rate : ""}
-                    className="border text-sm rounded-lg block w-full p-2 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Рейтинг"
+                    className="border-none text-xs rounded-lg block w-full p-3 bg-neutral-800 placeholder-gray-400 text-white"
                 />
             </div>
             <div className="mb-4">
                 <label
                     htmlFor="release_date"
-                    className="block mb-2 text-sm font-medium text-white"
+                    className="block mb-1 ml-1 text-xs font-medium text-white"
                 >
                     Дата выхода
                 </label>
@@ -74,14 +77,15 @@ export default function AdminForm({
                     id="release_date"
                     name="release_date"
                     defaultValue={movie ? movie.release_date : ""}
-                    className="border text-sm rounded-lg block w-full p-2 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Дата выхода"
+                    className="border-none text-xs rounded-lg block w-full p-3 bg-neutral-800 placeholder-gray-400 text-white"
                     required
                 />
             </div>
             <div className="mb-4">
                 <label
                     htmlFor="category"
-                    className="block mb-2 text-sm font-medium text-white"
+                    className="block mb-1 ml-1 text-xs font-medium text-white"
                 >
                     Категория
                 </label>
@@ -90,14 +94,15 @@ export default function AdminForm({
                     id="category"
                     name="category"
                     defaultValue={movie ? movie.category : ""}
-                    className="border text-sm rounded-lg block w-full p-2 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Категория"
+                    className="border-none text-xs rounded-lg block w-full p-3 bg-neutral-800 placeholder-gray-400 text-white"
                     required
                 />
             </div>
             <div className="mb-4">
                 <label
                     htmlFor="country"
-                    className="block mb-2 text-sm font-medium text-white"
+                    className="block mb-1 ml-1 text-xs font-medium text-white"
                 >
                     Страна
                 </label>
@@ -106,14 +111,15 @@ export default function AdminForm({
                     id="country"
                     name="country"
                     defaultValue={movie ? movie.country : ""}
-                    className="border text-sm rounded-lg block w-full p-2 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Страна"
+                    className="border-none text-xs rounded-lg block w-full p-3 bg-neutral-800 placeholder-gray-400 text-white"
                     required
                 />
             </div>
             <div className="mb-4">
                 <label
                     htmlFor="duration"
-                    className="block mb-2 text-sm font-medium text-white"
+                    className="block mb-1 ml-1 text-xs font-medium text-white"
                 >
                     Длительность
                 </label>
@@ -122,14 +128,15 @@ export default function AdminForm({
                     id="duration"
                     name="duration"
                     defaultValue={movie ? movie.duration : ""}
-                    className="border text-sm rounded-lg block w-full p-2 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Длительность"
+                    className="border-none text-xs rounded-lg block w-full p-3 bg-neutral-800 placeholder-gray-400 text-white"
                     required
                 />
             </div>
             <div className="mb-4">
                 <label
                     htmlFor="age"
-                    className="block mb-2 text-sm font-medium text-white"
+                    className="block mb-1 ml-1 text-xs font-medium text-white"
                 >
                     Возраст
                 </label>
@@ -138,14 +145,15 @@ export default function AdminForm({
                     id="age"
                     name="age"
                     defaultValue={movie ? movie.age : ""}
-                    className="border text-sm rounded-lg block w-full p-2 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                    placeholder=" Возраст"
+                    className="border-none text-xs rounded-lg block w-full p-3 bg-neutral-800 placeholder-gray-400 text-white"
                     required
                 />
             </div>
             <div className="mb-7">
                 <label
                     htmlFor="trailer"
-                    className="block mb-2 text-sm font-medium text-white"
+                    className="block mb-1 ml-1 text-xs font-medium text-white"
                 >
                     Ссылка трейлера
                 </label>
@@ -154,20 +162,21 @@ export default function AdminForm({
                     id="trailer"
                     name="trailer"
                     defaultValue={movie ? movie.trailer : ""}
-                    className="border text-sm rounded-lg block w-full p-2 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Ссылка трейлера"
+                    className="border-none text-xs rounded-lg block w-full p-3 bg-neutral-800 placeholder-gray-400 text-white"
                     required
                 />
             </div>
             <button
                 type="submit"
-                className="mr-3 text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-green-600 hover:bg-green-700 focus:ring-green-800"
+                className="mr-3 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-green-600 hover:bg-green-700"
             >
                 {movie ? "Обновить" : "Добавить"}
             </button>
             <button
                 type="button"
                 onClick={() => router.push("/admin")}
-                className="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-red-600 hover:bg-red-700 focus:ring-red-800"
+                className="text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-red-600 hover:bg-red-700"
             >
                 Отмена
             </button>

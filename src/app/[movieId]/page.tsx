@@ -19,10 +19,10 @@ export default function Movie() {
     }
 
     return (
-        <div className="mx-40">
-            <div className="flex">
-                <div className="mr-20">
-                    <Image className="rounded-xl" width="250" height="380" src={movie.image} alt="" />
+        <>
+            <div className="mx-10 lg:mx-0 lg:flex">
+                <div className="lg:mr-20">
+                    <Image className="rounded-xl mx-auto" width="250" height="380" src={movie.image} alt="" />
                 </div>
                 <div className="mt-5">
                     <h2 className="text-2xl font-bold mb-5">{movie.name}</h2>
@@ -51,16 +51,14 @@ export default function Movie() {
                     </div>
                 </div>
             </div>
-            <div className="p-20">
-                <iframe className="rounded-xl"
-                    width="800"
-                    height="450"
+            <div className="mx-10 my-20 lg:mx-0 xl:m-20">
+                <iframe className="rounded-xl w-full xl:max-w-[750px] aspect-video"
                     src={movie.trailer}
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen >
                 </iframe>
             </div>
-        </div>
+        </>
     );
 }
