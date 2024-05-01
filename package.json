@@ -5,15 +5,16 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "upload": "node ./src/lib/uploadToFirebase.ts"
+    "start": "next start"
   },
   "dependencies": {
     "firebase": "^10.8.0",
     "next": "14.1.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-lite-youtube-embed": "^2.4.0",
+    "react-responsive-modal": "^6.4.2",
+    "slugify": "^1.6.6"
   },
   "devDependencies": {
     "@types/node": "^20",
