@@ -4,7 +4,6 @@ import { getDBUser } from '@/database/databaseServices';
 import { User } from '@/lib/types';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-
 import { useRouter } from 'next/navigation';
 import HeaderAccountMenu from './HeaderAccountMenu';
 

@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import HeaderSearchForm from "./HeaderSearchForm";
 import HeaderAccount from "./HeaderAccount";
 
