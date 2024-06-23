@@ -1,6 +1,6 @@
 import { signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
 
-import { auth } from '@/lib/firebase';
+import { auth } from '@/database/firebase';
 import { addDBUser } from '@/database/databaseServices';
 import { User } from '@/lib/types';
 
@@ -13,6 +13,9 @@ export const signInWithGoogle = async () => {
         displayName: result.user.displayName!,
         email: result.user.email!,
         photoURL: result.user.photoURL!,
+        role: 'user',
+        favourites: [],
+        seeLater: [],
       };
       addDBUser({ user: user });
       sessionStorage.setItem('uid', user.uid);

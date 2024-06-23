@@ -1,5 +1,5 @@
 import { collection } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
+import { db } from '@/database/firebase';
 import { Movie } from '@/lib/types';
 import MovieCard from '@/components/MovieCard';
 import { getDBCollection } from '@/database/databaseServices';

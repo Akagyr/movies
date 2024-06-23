@@ -11,7 +11,7 @@ import {
 import slugify from 'slugify';
 import { useState, ChangeEvent } from 'react';
 import { collection, doc } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
+import { db } from '@/database/firebase';
 
 type MovieForm = {
   image: {

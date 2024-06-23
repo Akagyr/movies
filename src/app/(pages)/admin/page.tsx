@@ -1,7 +1,7 @@
 'use client';
 
 import { collection } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
+import { db } from '@/database/firebase';
 import { Movie } from '@/lib/types';
 import AdminMoviesList from '@/components/AdminMoviesList';
 import AdminMoviesSearchFrom from '@/components/AdminMoviesSearchFrom';

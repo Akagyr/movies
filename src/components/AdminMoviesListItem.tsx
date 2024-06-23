@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Movie } from '@/lib/types';
 import { deleteDBMovie, getDBCollection } from '@/database/databaseServices';
 import { collection } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
+import { db } from '@/database/firebase';
 
 export default function AdminMoviesListItem({
   movie,
