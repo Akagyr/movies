@@ -2,29 +2,37 @@
 
 import { updateDBFavourites } from '@/database/databaseServices';
 import useGetCurrentUser from '@/hooks/useGetCurrentUser';
-import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-export default function FavouriteIcon({ movieSlug }: { movieSlug: string }) {
+export default function FavouriteIcon({
+  movieSlug,
+  updateFavourites,
+}: {
+  movieSlug: string;
+  updateFavourites?: (movieSlug: string) => void;
+}) {
   const [isActive, setIsActive] = useState<boolean>(false);
-  const router = useRouter();
   const currentUser = useGetCurrentUser();
 
   useEffect(() => {
-    if (currentUser && currentUser.favourites!.some(fav => fav.slug === movieSlug)) {
+    if (currentUser && currentUser.favourites!.some((fav) => fav.slug === movieSlug)) {
       setIsActive(true);
     } else {
       setIsActive(false);
     }
   }, [currentUser]);
 
-  const handleClick = () => {
-    const userId = sessionStorage.getItem('uid');
-    if (userId) {
-      updateDBFavourites({ userSlug: userId!, movieSlug });
-      setIsActive(!isActive);
+  const handleClick = async () => {
+    if (currentUser) {
+      const queryStatus = await updateDBFavourites({ userSlug: currentUser.uid!, movieSlug });
+      if (queryStatus === 'success') {
+        setIsActive(!isActive);
+        updateFavourites && isActive && updateFavourites(movieSlug);
+      } else {
+        alert(`Ошибка сервера, попробуйте позже!`);
+      }
     } else {
-      router.push('auth');
+      alert('Вы не вошли в акаунт!');
     }
   };
 

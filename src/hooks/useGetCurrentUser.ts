@@ -1,21 +1,23 @@
 import { getDBUser } from '@/database/databaseServices';
 import { User } from '@/lib/types';
 import { useEffect, useState } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '@/database/firebase';
 
 export default function useGetCurrentUser() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   useEffect(() => {
-    const getUser = async () => {
-      const userId = sessionStorage.getItem('uid');
-      if (userId) {
-        const userData = await getDBUser({ uid: userId }) as User;
-        if (userData) {
-          setCurrentUser(userData);
-        }
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const userData = (await getDBUser({ uid: user.uid })) as User;
+        setCurrentUser(userData);
+      } else {
+        setCurrentUser(null);
       }
-    };
-    getUser();
+    });
+
+    return () => unsubscribe();
   }, []);
 
   return currentUser;

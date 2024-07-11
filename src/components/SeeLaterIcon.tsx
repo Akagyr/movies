@@ -2,12 +2,16 @@
 
 import { updateDBSeeLater } from '@/database/databaseServices';
 import useGetCurrentUser from '@/hooks/useGetCurrentUser';
-import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-export default function SeeLater({ movieSlug }: { movieSlug: string }) {
+export default function SeeLaterIcon({
+  movieSlug,
+  updateSeeLater,
+}: {
+  movieSlug: string;
+  updateSeeLater?: (movieSlug: string) => void;
+}) {
   const [isActive, setIsActive] = useState<boolean>(false);
-  const router = useRouter();
   const currentUser = useGetCurrentUser();
 
   useEffect(() => {
@@ -18,13 +22,17 @@ export default function SeeLater({ movieSlug }: { movieSlug: string }) {
     }
   }, [currentUser]);
 
-  const handleClick = () => {
-    const userId = sessionStorage.getItem('uid');
-    if (userId) {
-      updateDBSeeLater({ userSlug: userId!, movieSlug });
-      setIsActive(!isActive);
+  const handleClick = async () => {
+    if (currentUser) {
+      const queryStatus = await updateDBSeeLater({ userSlug: currentUser.uid!, movieSlug });
+      if (queryStatus === 'success') {
+        setIsActive(!isActive);
+        updateSeeLater && isActive && updateSeeLater(movieSlug);
+      } else {
+        alert(`Ошибка сервера, попробуйте позже!`);
+      }
     } else {
-      router.push('auth');
+      alert('Вы не вошли в акаунт!');
     }
   };
 

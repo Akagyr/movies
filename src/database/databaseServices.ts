@@ -121,9 +121,7 @@ export async function updateDBFavourites({
           (fav: Favourite) => fav.slug === movieSlug
         );
         if (existingFavourite) {
-          updatedFavourites = currentFavourites.filter(
-            (fav: Favourite) => fav.slug !== movieSlug
-          );
+          updatedFavourites = currentFavourites.filter((fav: Favourite) => fav.slug !== movieSlug);
         } else {
           updatedFavourites = [...currentFavourites, newFavourite];
         }
@@ -135,8 +133,10 @@ export async function updateDBFavourites({
         favourites: updatedFavourites,
       });
     }
+    return 'success';
   } catch (error) {
     console.error(`Error add favourite film to user with id - ${userSlug}:`, error);
+    return 'failure';
   }
 }
 
@@ -160,13 +160,9 @@ export async function updateDBSeeLater({
       const userData = userDocSnapshot.data() as User;
       if (userData.seeLater && userData.seeLater.length !== 0) {
         const currentSeeLater = [...userData.seeLater];
-        const existingSeeLater = currentSeeLater.find(
-          (sl: SeeLater) => sl.slug === movieSlug
-        );
+        const existingSeeLater = currentSeeLater.find((sl: SeeLater) => sl.slug === movieSlug);
         if (existingSeeLater) {
-          updatedSeeLater = currentSeeLater.filter(
-            (sl: SeeLater) => sl.slug !== movieSlug
-          );
+          updatedSeeLater = currentSeeLater.filter((sl: SeeLater) => sl.slug !== movieSlug);
         } else {
           updatedSeeLater = [...currentSeeLater, newSeeLater];
         }
@@ -178,7 +174,9 @@ export async function updateDBSeeLater({
         seeLater: updatedSeeLater,
       });
     }
+    return 'success';
   } catch (error) {
     console.error(`Error add see later film to user with id - ${userSlug}:`, error);
+    return 'failure';
   }
 }

@@ -1,5 +1,3 @@
-import CustomInput from './custom/CustomInput';
-
 export default function HeaderSearchForm() {
   return (
     <form className='hidden lg:flex px-10 col-span-4 items-center'>
