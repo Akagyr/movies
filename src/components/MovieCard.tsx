@@ -18,16 +18,14 @@ export default function MovieCard({
   updateSeeLater?: (movieSlug: string) => void;
 }) {
   const pathname = usePathname();
-  const isOnFavouritesPage = pathname === '/favourites';
-  const isOnSeeLaterPage = pathname === '/seeLater';
 
   return (
     <div className='w-[250px] lg:w-[270px] h-full bg-[#141313] lg:hover:scale-[1.01] lg:hover:transition lg:hover:duration-500 lg:hover:ease-out rounded-lg shadow relative'>
       <div className='absolute top-0 right-0 flex gap-[7px] bg-[#141313]/85 px-[7px] py-[5px] rounded-bl-lg z-1'>
-        {!isOnSeeLaterPage && (
+        {pathname !== '/seeLater' && (
           <FavouriteIcon movieSlug={movie.slug} updateFavourites={updateFavourites} />
         )}
-        {!isOnFavouritesPage && (
+        {pathname !== '/favourites' && (
           <SeeLaterIcon movieSlug={movie.slug} updateSeeLater={updateSeeLater} />
         )}
       </div>

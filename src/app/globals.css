@@ -12,7 +12,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-    background: transparent;;
+    background: transparent;
 }
 
 body::-webkit-scrollbar-thumb {
@@ -20,7 +20,8 @@ body::-webkit-scrollbar-thumb {
     border-radius: 20px;
 }
 
-input {
+input,
+select {
     outline: none;
 }
 

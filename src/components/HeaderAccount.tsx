@@ -1,7 +1,5 @@
 'use client';
 
-import { User } from '@/lib/types';
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import useGetCurrentUser from '@/hooks/useGetCurrentUser';
 import { signOutWithGoogle, signInWithGoogle } from '@/helpers/authHelper';
