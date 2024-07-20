@@ -38,6 +38,10 @@ export default async function Search({
     filteredMovies = filteredMovies.filter((movie) => movie.release_date.includes(year));
   }
 
+  if (filteredMovies.length === 0) {
+    return <div>По вашему поиску фильмов нету!</div>
+  }
+
   const showMovieCards = filteredMovies.map((movie: Movie) => (
     <MovieCard key={movie.slug} movie={movie} />
   ));

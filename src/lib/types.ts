@@ -2,7 +2,7 @@ export type Movie = {
   slug: string;
   image: string;
   name: string;
-  rate: string;
+  rates: Rate[];
   category: string;
   duration: string;
   age: string;
@@ -10,6 +10,11 @@ export type Movie = {
   country: string;
   trailer: string;
   added_date: string;
+};
+
+export type Rate = {
+  userSlug: string;
+  rate: number;
 };
 
 export type Category = {

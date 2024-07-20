@@ -4,6 +4,7 @@ import { inter } from '@/lib/fonts';
 import Sidebar from '@/components/Sidebar';
 import Header from '@/components/Header';
 import NavMenuMobile from '@/components/NavMenuMobile';
+import '@smastrom/react-rating/style.css'
 
 export const metadata: Metadata = {
   title: 'Movie trailers',

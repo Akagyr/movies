@@ -11,7 +11,7 @@ export default function HeaderSearchForm({ categories }: { categories: Category[
   const router = useRouter();
 
   const currentYear = new Date().getFullYear();
-  const years = Array.from({ length: 45 }, (_, index) => currentYear - index);
+  const years = Array.from({ length: 35 }, (_, index) => currentYear - index);
 
   const handleSearch = () => {
     const searchParams = new URLSearchParams();

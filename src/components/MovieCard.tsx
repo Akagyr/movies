@@ -3,10 +3,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Movie } from '@/lib/types';
-import RateStars from './RateStars';
 import FavouriteIcon from './FavouriteIcon';
 import SeeLaterIcon from './SeeLaterIcon';
 import { usePathname } from 'next/navigation';
+import RatingWithText from './RatingWithText';
 
 export default function MovieCard({
   movie,
@@ -18,6 +18,7 @@ export default function MovieCard({
   updateSeeLater?: (movieSlug: string) => void;
 }) {
   const pathname = usePathname();
+  const ratingSum = movie.rates.reduce((sum, rate) => sum + rate.rate, 0);
 
   return (
     <div className='w-[250px] lg:w-[270px] h-full bg-[#141313] lg:hover:scale-[1.01] lg:hover:transition lg:hover:duration-500 lg:hover:ease-out rounded-lg shadow relative'>
@@ -42,7 +43,9 @@ export default function MovieCard({
           <h2 className='mb-4 text-xl lg:text-2xl font-bold tracking-tight text-white'>
             {movie.name}
           </h2>
-          <RateStars rate={movie.rate} />
+          <div className='mb-4'>
+            <RatingWithText rating={ratingSum / movie.rates.length} />
+          </div>
           <p className='text-sm lg:text-base mb-4 text-gray-400'>{movie.release_date}</p>
           <p className='text-sm lg:text-base mb-4 text-gray-400'>{movie.category}</p>
           <p className='text-sm lg:text-base text-gray-400'>{movie.duration}</p>

@@ -7,8 +7,8 @@ import {
   DocumentSnapshot,
   DocumentReference,
   DocumentData,
-  deleteDoc,
   updateDoc,
+  arrayUnion,
 } from 'firebase/firestore';
 import { db } from '@/database/firebase';
 import { Favourite, Movie, SeeLater, User } from '@/lib/types';
@@ -35,7 +35,7 @@ export async function getDBElement(collection: DocumentReference<DocumentData, D
   }
 }
 
-export async function getDBMovie({ movieSlug }: { movieSlug: string }) {
+export async function getDBMovie(movieSlug: string) {
   try {
     const docRef = doc(db, 'movies', `${movieSlug}`);
     const docSnap = await getDoc(docRef);
@@ -69,31 +69,36 @@ export async function getDBUser({ uid }: { uid: string }) {
   }
 }
 
-export async function deleteDBMovie({ slug }: { slug: string }) {
+export async function updateDBMovieRating({
+  movieSlug,
+  rate,
+  userSlug,
+}: {
+  movieSlug: string;
+  rate: number;
+  userSlug: string;
+}) {
   try {
-    await deleteDoc(doc(db, 'movies', slug));
-  } catch (error) {
-    console.error(`Error delete movie with id - ${slug}:`, error);
-    return null;
-  }
-}
-
-export async function addDBMovie({ movie }: { movie: Movie }) {
-  try {
-    const dbMovie = await getDBElement(doc(db, 'movies', movie.slug));
-    if (!dbMovie) {
-      await setDoc(doc(db, 'movies', movie.slug), movie);
+    const movie = await getDBMovie(movieSlug);
+    if (movie) {
+      const userRateIndex = movie.rates.findIndex((el) => el.userSlug === userSlug);
+      if (userRateIndex === -1) {
+        await updateDoc(doc(db, 'movies', movieSlug), {
+          rates: arrayUnion({
+            userSlug,
+            rate,
+          }),
+        });
+      } else {
+        const rates = [...movie.rates];
+        rates[userRateIndex].rate = rate;
+        await updateDoc(doc(db, 'movies', movieSlug), {
+          rates,
+        });
+      }
     }
   } catch (error) {
-    console.error('Error add user with this id', error);
-  }
-}
-
-export async function updateDBMovie({ movieData }: { movieData: Movie }) {
-  try {
-    await updateDoc(doc(db, 'movies', movieData.slug), movieData);
-  } catch (error) {
-    console.error(`Error add user with id - ${movieData.slug}:`, error);
+    console.error(`Error updating rating for movie with id - ${movieSlug}:`, error);
   }
 }
 
