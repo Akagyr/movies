@@ -4,6 +4,8 @@ import { Movie } from '@/lib/types';
 import MovieCard from '@/components/MovieCard';
 import { getDBCollection } from '@/database/databaseServices';
 
+export const revalidate = 0;
+
 export default async function Home() {
   const movies = (await getDBCollection(collection(db, 'movies'))) as Movie[];
 
