@@ -3,6 +3,7 @@
 import { updateDBFavourites } from '@/database/databaseServices';
 import useGetCurrentUser from '@/hooks/useGetCurrentUser';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 export default function FavouriteIcon({
   movieSlug,
@@ -28,16 +29,17 @@ export default function FavouriteIcon({
       if (queryStatus === 'success') {
         setIsActive(!isActive);
         updateFavourites && isActive && updateFavourites(movieSlug);
+        toast.success(isActive ? 'Удалено из избранного' : 'Добавлено в избранное');
       } else {
-        alert(`Ошибка сервера, попробуйте позже!`);
+        toast.error('Ошибка сервера, попробуйте позже!');
       }
     } else {
-      alert('Вы не вошли в акаунт!');
+      toast.warning('Вы не вошли в аккаунт!');
     }
   };
 
   return (
-    <button onClick={() => handleClick()}>
+    <button onClick={handleClick}>
       <svg
         className={`${isActive ? 'fill-red-600' : 'fill-white'} transition-colors duration-300`}
         xmlns='http://www.w3.org/2000/svg'

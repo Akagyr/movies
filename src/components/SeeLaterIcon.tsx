@@ -3,6 +3,7 @@
 import { updateDBSeeLater } from '@/database/databaseServices';
 import useGetCurrentUser from '@/hooks/useGetCurrentUser';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 export default function SeeLaterIcon({
   movieSlug,
@@ -28,11 +29,12 @@ export default function SeeLaterIcon({
       if (queryStatus === 'success') {
         setIsActive(!isActive);
         updateSeeLater && isActive && updateSeeLater(movieSlug);
+        toast.success(isActive ? 'Удалено из смотреть позже' : 'Добавлено в смотреть позже');
       } else {
-        alert(`Ошибка сервера, попробуйте позже!`);
+        toast.error('Ошибка сервера, попробуйте позже!');
       }
     } else {
-      alert('Вы не вошли в акаунт!');
+      toast.warning('Вы не вошли в аккаунт!');
     }
   };
 

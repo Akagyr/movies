@@ -4,7 +4,9 @@ import { inter } from '@/lib/fonts';
 import Sidebar from '@/components/Sidebar';
 import Header from '@/components/Header';
 import NavMenuMobile from '@/components/NavMenuMobile';
-import '@smastrom/react-rating/style.css'
+import '@smastrom/react-rating/style.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 export const metadata: Metadata = {
   title: 'Movie trailers',
@@ -20,6 +22,11 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`${inter.className}`}>
         <Header />
+        <ToastContainer
+          position='top-center'
+          autoClose={2000}
+          theme='colored'
+        />
         <div className='min-h-[91vh] grid grid-cols-6'>
           <Sidebar />
           <main className='md:mx-10 lg:mx-20 my-10 relative col-span-6 lg:col-span-5'>

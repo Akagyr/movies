@@ -4,6 +4,7 @@ import { updateDBMovieRating } from '@/database/databaseServices';
 import useGetCurrentUser from '@/hooks/useGetCurrentUser';
 import { Rating as ReactRating, RoundedStar, ItemStyles } from '@smastrom/react-rating';
 import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 export function Rating({
   movieSlug,
@@ -42,13 +43,13 @@ export function Rating({
           userSlug: user.uid,
         });
         setCurrentRating(currentRate);
-        return alert('Success');
+        toast.success('Рейтинг усешно обновлен!');
       } catch (error) {
-        alert('Error');
-        return console.log(error);
+        toast.error('Ошибка сервера, попробуйте позже!');
       }
+    } else {
+      toast.warning('Вы не вошли в аккаунт!');
     }
-    return alert('Please login!');
   };
 
   return (
