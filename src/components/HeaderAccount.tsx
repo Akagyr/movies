@@ -19,7 +19,7 @@ export default function HeaderAccount() {
     <div className='lg:flex justify-center'>
       {currentUser ? (
         <div className='flex items-center gap-[10px] justify-end'>
-          <p className='text-white text-sm'>{currentUser.displayName}</p>
+          <p className='hidden lg:block text-white text-sm'>{currentUser.displayName}</p>
           <Image
             className='rounded-full'
             src={currentUser.photoURL!}

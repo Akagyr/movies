@@ -3,7 +3,7 @@ import './globals.css';
 import { inter } from '@/lib/fonts';
 import Sidebar from '@/components/Sidebar';
 import Header from '@/components/Header';
-import NavMenuMobile from '@/components/NavMenuMobile';
+import MobileNavMenu from '@/components/MobileNavMenu';
 import '@smastrom/react-rating/style.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
@@ -27,13 +27,13 @@ export default function RootLayout({
           autoClose={2000}
           theme='colored'
         />
-        <div className='min-h-[91vh] grid grid-cols-6'>
+        <div className='min-h-[91vh] lg:grid lg:grid-cols-6'>
           <Sidebar />
-          <main className='md:mx-10 lg:mx-20 my-10 relative col-span-6 lg:col-span-5'>
+          <main className='mx-10 lg:mx-20 my-5 lg:my-10 mb-10 relative col-span-6 lg:col-span-5'>
             {children}
           </main>
         </div>
-        <NavMenuMobile />
+        <MobileNavMenu />
       </body>
     </html>
   );

@@ -26,16 +26,21 @@ export default function SeeLaterList({ movies }: { movies: Movie[] }) {
     setSeeLater(seeLater.filter((sl: Movie) => sl.slug !== movieSlug));
   };
 
-  const showMovies = seeLater.map((movie: Movie) => <MovieCard key={movie.slug} movie={movie} updateSeeLater={updateSeeLater} />);
+  const showMovies = seeLater.map((movie: Movie) => (
+    <MovieCard key={movie.slug} movie={movie} updateSeeLater={updateSeeLater} />
+  ));
 
   return (
     <>
       {seeLater.length === 0 ? (
         <EmptyItems isAuth={currentUser ? true : false} />
       ) : (
-        <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 justify-items-center'>
-          {showMovies}
-        </div>
+        <>
+          <h2 className='lg:hidden text-white mb-[10px] font-semibold text-xl'>Смотреть позже:</h2>
+          <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 justify-items-center'>
+            {showMovies}
+          </div>
+        </>
       )}
     </>
   );

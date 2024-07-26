@@ -39,15 +39,11 @@ export default function MovieCard({
           alt=''
           priority
         />
-        <div className='p-3 lg:p-5'>
-          <h2 className='mb-4 text-xl lg:text-2xl font-bold tracking-tight text-white'>
-            {movie.name}
-          </h2>
-          <div className='mb-4'>
-            <RatingWithText rating={ratingSum / movie.rates.length} />
-          </div>
-          <p className='text-sm lg:text-base mb-4 text-gray-400'>{movie.release_date}</p>
-          <p className='text-sm lg:text-base mb-4 text-gray-400'>{movie.category}</p>
+        <div className='p-3 lg:p-5 flex flex-col gap-[15px]'>
+          <h2 className='text-xl lg:text-2xl font-bold tracking-tight text-white'>{movie.name}</h2>
+          <RatingWithText rating={ratingSum / movie.rates.length} />
+          <p className='text-sm lg:text-base text-gray-400'>{movie.release_date}</p>
+          <p className='text-sm lg:text-base text-gray-400'>{movie.category}</p>
           <p className='text-sm lg:text-base text-gray-400'>{movie.duration}</p>
         </div>
       </Link>

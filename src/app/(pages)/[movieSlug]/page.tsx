@@ -14,7 +14,7 @@ export default async function Movie(params: { params: { movieSlug: string } }) {
   }
 
   return (
-    <div className='mx-[40px] lg:mx-0'>
+    <>
       <MovieInfo movie={movie} />
       <div className='mt-[50px]'>
         <h2 className='text-lg font-bold mb-[10px]'>Трейлер к фильму</h2>
@@ -23,6 +23,6 @@ export default async function Movie(params: { params: { movieSlug: string } }) {
       <div className='mt-[30px]'>
         <RatingPicker movieSlug={movie.slug} movieRates={movie.rates} />
       </div>
-    </div>
+    </>
   );
 }

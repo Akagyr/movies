@@ -26,16 +26,21 @@ export default function FavouritesList({ movies }: { movies: Movie[] }) {
     setFavourites(favourites.filter((fav: Movie) => fav.slug !== movieSlug));
   };
 
-  const showMovies = favourites.map((movie: Movie) => <MovieCard key={movie.slug} movie={movie} updateFavourites={updateFavourites} />);
+  const showMovies = favourites.map((movie: Movie) => (
+    <MovieCard key={movie.slug} movie={movie} updateFavourites={updateFavourites} />
+  ));
 
   return (
     <>
       {favourites.length === 0 ? (
         <EmptyItems isAuth={currentUser ? true : false} />
       ) : (
-        <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 justify-items-center'>
-          {showMovies}
-        </div>
+        <>
+          <h2 className='lg:hidden text-white mb-[10px] font-semibold text-xl'>Избранные:</h2>
+          <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 justify-items-center'>
+            {showMovies}
+          </div>
+        </>
       )}
     </>
   );

@@ -4,7 +4,7 @@ import { Category } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-export default function HeaderSearchForm({ categories }: { categories: Category[] }) {
+export default function SearchForm({ categories }: { categories: Category[] }) {
   const [selectedName, setSelectedName] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedYear, setSelectedYear] = useState('');
@@ -29,9 +29,9 @@ export default function HeaderSearchForm({ categories }: { categories: Category[
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className='hidden lg:flex px-10 col-span-4 items-center'
+      className='flex flex-col lg:flex-row gap-[15px] lg:gap-[20px] lg:px-10 lg:items-center'
     >
-      <div className='mr-5 w-[220px]'>
+      <div className='lg:w-[220px]'>
         <input
           type='text'
           value={selectedName}
@@ -40,7 +40,7 @@ export default function HeaderSearchForm({ categories }: { categories: Category[
           className='text-sm rounded-lg block w-full py-2 px-3 bg-neutral-800 placeholder-gray-400 text-white'
         />
       </div>
-      <div className='mr-5 w-[180px]'>
+      <div className='lg:w-[180px]'>
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
@@ -56,7 +56,7 @@ export default function HeaderSearchForm({ categories }: { categories: Category[
           ))}
         </select>
       </div>
-      <div className='mr-5 w-[100px]'>
+      <div className='lg:w-[100px]'>
         <select
           value={selectedYear}
           onChange={(e) => setSelectedYear(e.target.value)}
@@ -74,7 +74,7 @@ export default function HeaderSearchForm({ categories }: { categories: Category[
       </div>
       <button
         onClick={() => handleSearch()}
-        className='text-white font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2 text-center bg-red-700 hover:bg-red-800'
+        className='text-white font-medium rounded-lg text-sm w-auto px-4 py-2 text-center bg-red-700 hover:bg-red-800'
       >
         Поиск
       </button>
