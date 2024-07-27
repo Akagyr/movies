@@ -37,14 +37,14 @@ export default function SearchForm({ categories }: { categories: Category[] }) {
           value={selectedName}
           onChange={(e) => setSelectedName(e.target.value)}
           placeholder='Название'
-          className='text-sm rounded-lg block w-full py-2 px-3 bg-neutral-800 placeholder-gray-400 text-white'
+          className='text-xs lg:text-sm rounded-lg block w-full py-2 px-3 bg-neutral-800 placeholder-gray-400 text-white'
         />
       </div>
       <div className='lg:w-[180px]'>
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
-          className={`cursor-pointer text-sm rounded-lg block w-full py-2 px-3 bg-neutral-800 ${
+          className={`cursor-pointer text-xs lg:text-sm rounded-lg block w-full py-2 px-3 bg-neutral-800 ${
             selectedCategory !== '' ? 'text-white' : 'text-gray-400'
           }`}
         >
@@ -60,7 +60,7 @@ export default function SearchForm({ categories }: { categories: Category[] }) {
         <select
           value={selectedYear}
           onChange={(e) => setSelectedYear(e.target.value)}
-          className={`cursor-pointer text-sm rounded-lg block w-full py-2 px-3 bg-neutral-800 ${
+          className={`cursor-pointer text-xs lg:text-sm rounded-lg block w-full py-2 px-3 bg-neutral-800 ${
             selectedYear !== '' ? 'text-white' : 'text-gray-400'
           }`}
         >
@@ -74,7 +74,7 @@ export default function SearchForm({ categories }: { categories: Category[] }) {
       </div>
       <button
         onClick={() => handleSearch()}
-        className='text-white font-medium rounded-lg text-sm w-auto px-4 py-2 text-center bg-red-700 hover:bg-red-800'
+        className='text-white font-medium rounded-lg text-xs lg:text-sm w-auto px-4 py-2 text-center bg-red-700 hover:bg-red-800'
       >
         Поиск
       </button>

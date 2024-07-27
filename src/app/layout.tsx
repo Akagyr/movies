@@ -29,7 +29,7 @@ export default function RootLayout({
         />
         <div className='min-h-[91vh] lg:grid lg:grid-cols-6'>
           <Sidebar />
-          <main className='mx-10 lg:mx-20 my-5 lg:my-10 mb-10 relative col-span-6 lg:col-span-5'>
+          <main className='mx-[30px] lg:mx-[80px] my-[20px] lg:my-[40px] relative col-span-6 lg:col-span-5'>
             {children}
           </main>
         </div>

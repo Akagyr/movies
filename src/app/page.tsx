@@ -14,11 +14,13 @@ export default async function Home() {
   const showMovieCards = movies.map((movie: Movie) => <MovieCard key={movie.slug} movie={movie} />);
 
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 justify-items-center'>
-      <div className='w-full lg:hidden'>
+    <>
+      <div className='w-full mb-[20px] lg:hidden'>
         <MobileCollapseSearchForm categories={categories} />
       </div>
-      {showMovieCards}
-    </div>
+      <div className='grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-[30px] xl:gap-[40px] justify-items-center'>
+        {showMovieCards}
+      </div>
+    </>
   );
 }

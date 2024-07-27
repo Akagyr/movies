@@ -13,7 +13,7 @@ export default function MobileCollapseSearchForm({ categories }: { categories: C
         onClick={() => setIsActive(!isActive)}
         className='flex justify-between w-full text-white font-medium rounded-lg text-sm px-[15px] py-[10px] text-center bg-red-800 relative'
       >
-        <p>Випадающий поиск</p>
+        <p className='text-xs'>Випадающий поиск</p>
         <span
           className={`${
             isActive ? 'rotate-180' : 'rotate-0'

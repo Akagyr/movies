@@ -36,8 +36,8 @@ export default function SeeLaterList({ movies }: { movies: Movie[] }) {
         <EmptyItems isAuth={currentUser ? true : false} />
       ) : (
         <>
-          <h2 className='lg:hidden text-white mb-[10px] font-semibold text-xl'>Смотреть позже:</h2>
-          <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 justify-items-center'>
+          <h2 className='lg:hidden text-white mb-[10px] font-semibold text-lg lg:text-xl'>Смотреть позже:</h2>
+          <div className='grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-[30px] lg:gap-[40px] justify-items-center'>
             {showMovies}
           </div>
         </>

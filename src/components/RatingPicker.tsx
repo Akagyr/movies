@@ -26,7 +26,7 @@ export default function RatingPicker({
 
   return (
     <>
-      <p className='mb-[5px]'>Ваша оценка:</p>
+      <p className='text-sm lg:text-base mb-[5px]'>Ваша оценка:</p>
       <Rating rating={rating} maxWidth={260} itemsCount={10} movieSlug={movieSlug} />
     </>
   );

@@ -12,7 +12,7 @@ export default function RatingWithText({
   return (
     <div className='flex items-center'>
       <Rating rating={rating} readOnly={readOnly} maxWidth={maxWidth} />
-      <p className='ms-1 text-sm font-medium text-gray-400'>{rating} из 10</p>
+      <p className='ms-[5px] text-xs lg:text-sm font-medium text-gray-400'>{rating} из 10</p>
     </div>
   );
 }
