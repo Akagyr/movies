@@ -25,7 +25,7 @@ export default function RootLayout({
         <ToastContainer
           position='top-center'
           autoClose={2000}
-          theme='colored'
+          theme='light'
         />
         <div className='min-h-[91vh] lg:grid lg:grid-cols-6'>
           <Sidebar />

@@ -21,7 +21,7 @@ export default function MovieCard({
   const ratingSum = movie.rates.reduce((sum, rate) => sum + rate.rate, 0);
 
   return (
-    <div className='max-w-[170px] lg:max-w-[270px] h-full bg-[#141313] lg:hover:scale-[1.01] lg:hover:transition lg:hover:duration-500 lg:hover:ease-out rounded-lg shadow relative'>
+    <div className='max-w-[270px] bg-[#141313] lg:hover:scale-[1.01] lg:hover:transition lg:hover:duration-500 lg:hover:ease-out rounded-lg shadow relative'>
       <div className='absolute top-0 right-0 flex gap-[7px] bg-[#141313]/85 px-[7px] py-[5px] rounded-bl-lg z-1'>
         {pathname !== '/seeLater' && (
           <FavouriteIcon movieSlug={movie.slug} updateFavourites={updateFavourites} />
@@ -32,7 +32,7 @@ export default function MovieCard({
       </div>
       <Link href={`${movie.slug}`}>
         <Image
-          className='rounded-t-lg w-full min-h-[200px] max-h-[230px] lg:h-[380px] lg:max-h-none lg:min-h-none'
+          className='rounded-t-lg w-full aspect-[3/4]'
           width='270'
           height='380'
           src={movie.image}

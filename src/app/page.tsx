@@ -18,7 +18,7 @@ export default async function Home() {
       <div className='w-full mb-[20px] lg:hidden'>
         <MobileCollapseSearchForm categories={categories} />
       </div>
-      <div className='grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-[30px] xl:gap-[40px] justify-items-center'>
+      <div className='grid grid-cols-2 sm:grid-cols-3 2xl:grid-cols-4 gap-[30px] xl:gap-[40px] justify-items-center'>
         {showMovieCards}
       </div>
     </>
