@@ -4,6 +4,7 @@ import { Category, Movie } from '@/lib/types';
 import MovieCard from '@/components/MovieCard';
 import { getDBCollection } from '@/database/databaseServices';
 import MobileCollapseSearchForm from '@/components/MobileCollapseSearchForm';
+import Loading from './loading';
 
 export const revalidate = 0;
 
