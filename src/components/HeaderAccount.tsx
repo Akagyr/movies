@@ -16,10 +16,10 @@ export default function HeaderAccount() {
   };
 
   return (
-    <div className='lg:flex justify-center'>
+    <div className='xl:flex justify-center'>
       {currentUser ? (
         <div className='flex items-center gap-[10px] justify-end'>
-          <p className='hidden lg:block text-white text-sm'>{currentUser.displayName}</p>
+          <p className='hidden xl:block text-white text-sm'>{currentUser.displayName}</p>
           <Image
             className='rounded-full max-w-[40px] lg:max-w-[45px]'
             src={currentUser.photoURL!}

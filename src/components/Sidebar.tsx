@@ -13,7 +13,7 @@ export function LinkSidebar({ text, link }: { text: string; link: string }) {
 
 export default function Sidebar() {
   return (
-    <aside className='hidden lg:flex flex-col gap-[10px] bg-[#141313] text-center'>
+    <aside className='hidden h-full lg:flex flex-col gap-[10px] bg-[#141313] text-center'>
       <LinkSidebar text='Домой' link='/' />
       <LinkSidebar text='Посмотреть позже' link='seeLater' />
       <LinkSidebar text='Понравившиеся' link='favourites' />

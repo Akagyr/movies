@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function MobileNavMenu() {
   return (
-    <nav className='w-full py-2 grid grid-cols-3 lg:hidden sticky bottom-0 bg-[#141313]/80 backdrop-opacity-10 backdrop-invert rounded-t-full'>
+    <nav className='w-full py-2 grid grid-cols-3 lg:hidden fixed bottom-0 bg-[#141313]/80 backdrop-opacity-10 backdrop-invert rounded-t-full'>
       <Link
         href='/'
         className='flex flex-col justify-center items-center border-r-2 border-red-600'

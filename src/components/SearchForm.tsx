@@ -29,7 +29,7 @@ export default function SearchForm({ categories }: { categories: Category[] }) {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className='flex flex-col lg:flex-row gap-[15px] lg:gap-[20px] lg:px-10 lg:items-center'
+      className='flex flex-col lg:flex-row gap-[15px] lg:gap-[20px] lg:items-center'
     >
       <div className='lg:w-[220px]'>
         <input

@@ -4,7 +4,6 @@ import { Category, Movie } from '@/lib/types';
 import MovieCard from '@/components/MovieCard';
 import { getDBCollection } from '@/database/databaseServices';
 import MobileCollapseSearchForm from '@/components/MobileCollapseSearchForm';
-import Loading from './loading';
 
 export const revalidate = 0;
 
@@ -16,9 +15,7 @@ export default async function Home() {
 
   return (
     <>
-      <div className='w-full mb-[20px] lg:hidden'>
-        <MobileCollapseSearchForm categories={categories} />
-      </div>
+      <MobileCollapseSearchForm categories={categories} />
       <div className='grid grid-cols-2 sm:grid-cols-3 2xl:grid-cols-4 gap-[30px] xl:gap-[40px] justify-items-center'>
         {showMovieCards}
       </div>
