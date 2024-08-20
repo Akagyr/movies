@@ -19,6 +19,7 @@ export default function MovieCard({
 }) {
   const pathname = usePathname();
   const ratingSum = movie.rates.reduce((sum, rate) => sum + rate.rate, 0);
+  const ratingAvg = ratingSum / movie.rates.length;
 
   return (
     <div className='max-w-[270px] bg-[#141313] lg:hover:scale-[1.01] lg:hover:transition lg:hover:duration-500 lg:hover:ease-out rounded-lg shadow relative'>
@@ -41,7 +42,7 @@ export default function MovieCard({
         />
         <div className='p-[15px] lg:p-[20px] flex flex-col gap-[15px]'>
           <h2 className='text-lg lg:text-2xl font-bold tracking-tight text-white'>{movie.name}</h2>
-          <RatingWithText rating={ratingSum / movie.rates.length} />
+          <RatingWithText rating={ratingAvg ? ratingAvg : 0} />
           <p className='text-xs lg:text-base text-gray-400'>{movie.release_date}</p>
           <p className='text-xs lg:text-base text-gray-400'>{movie.category}</p>
           <p className='text-xs lg:text-base text-gray-400'>{movie.duration}</p>
