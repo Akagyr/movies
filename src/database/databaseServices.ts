@@ -49,22 +49,22 @@ export async function getDBMovie(movieSlug: string) {
 
 export async function addDBUser({ user }: { user: User }) {
   try {
-    const dbUser = await getDBUser({ uid: user.uid });
+    const dbUser = await getDBUser({ slug: user.slug });
     if (!dbUser) {
-      await setDoc(doc(db, 'users', user.uid), user);
+      await setDoc(doc(db, 'users', user.slug), user);
     }
   } catch (error) {
-    console.error(`Error add user with id - ${user.uid}:`, error);
+    console.error(`Error add user with id - ${user.slug}:`, error);
   }
 }
 
-export async function getDBUser({ uid }: { uid: string }) {
+export async function getDBUser({ slug }: { slug: string }) {
   try {
-    const docSnap: DocumentSnapshot<DocumentData> = await getDoc(doc(db, 'users', `${uid}`));
+    const docSnap: DocumentSnapshot<DocumentData> = await getDoc(doc(db, 'users', `${slug}`));
     const user = docSnap.data() as User;
     return user;
   } catch (error) {
-    console.error(`Error get user with id - ${uid}:`, error);
+    console.error(`Error get user with id - ${slug}:`, error);
     return null;
   }
 }

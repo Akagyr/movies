@@ -25,7 +25,7 @@ export default function SeeLaterIcon({
 
   const handleClick = async () => {
     if (currentUser) {
-      const queryStatus = await updateDBSeeLater({ userSlug: currentUser.uid!, movieSlug });
+      const queryStatus = await updateDBSeeLater({ userSlug: currentUser.slug!, movieSlug });
       if (queryStatus === 'success') {
         setIsActive(!isActive);
         updateSeeLater && isActive && updateSeeLater(movieSlug);

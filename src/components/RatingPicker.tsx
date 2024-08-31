@@ -17,7 +17,7 @@ export default function RatingPicker({
 
   useEffect(() => {
     if (user) {
-      const userRate = movieRates.find((rate) => rate.userSlug === user.uid);
+      const userRate = movieRates.find((rate) => rate.userSlug === user.slug);
       if (userRate) {
         setRating(userRate.rate);
       }

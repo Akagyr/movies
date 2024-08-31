@@ -3,22 +3,24 @@ import { signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
 import { auth } from '@/database/firebase';
 import { addDBUser } from '@/database/databaseServices';
 import { User } from '@/lib/types';
+import { slugCreate } from './slugHelper';
 
 export const signInWithGoogle = async (): Promise<User | null> => {
   const provider = new GoogleAuthProvider();
   try {
     const result = await signInWithPopup(auth, provider);
+    const slug = slugCreate(`${result.user.displayName}-${result.user.uid}`);
     const user: User = {
-      uid: result.user.uid!,
-      displayName: result.user.displayName!,
+      slug: slug,
+      name: result.user.displayName!,
       email: result.user.email!,
-      photoURL: result.user.photoURL!,
+      photo: result.user.photoURL!,
       role: 'user',
       favourites: [],
       seeLater: [],
     };
     await addDBUser({ user: user });
-    sessionStorage.setItem('uid', user.uid);
+    sessionStorage.setItem('loginAccess', user.slug);
     return user;
   } catch (error) {
     console.error('Error signing in with Google:', error);
@@ -29,7 +31,7 @@ export const signInWithGoogle = async (): Promise<User | null> => {
 export const signOutWithGoogle = async () => {
   try {
     await signOut(auth);
-    sessionStorage.removeItem('uid');
+    sessionStorage.removeItem('loginAccess');
   } catch (error) {
     console.error('Error signing out:', error);
   }

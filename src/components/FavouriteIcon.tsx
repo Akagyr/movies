@@ -25,7 +25,7 @@ export default function FavouriteIcon({
 
   const handleClick = async () => {
     if (currentUser) {
-      const queryStatus = await updateDBFavourites({ userSlug: currentUser.uid!, movieSlug });
+      const queryStatus = await updateDBFavourites({ userSlug: currentUser.slug!, movieSlug });
       if (queryStatus === 'success') {
         setIsActive(!isActive);
         updateFavourites && isActive && updateFavourites(movieSlug);

@@ -40,7 +40,7 @@ export function Rating({
         await updateDBMovieRating({
           movieSlug: movieSlug!,
           rate: currentRate,
-          userSlug: user.uid,
+          userSlug: user.slug,
         });
         setCurrentRating(currentRate);
         toast.success('Рейтинг усешно обновлен!');
