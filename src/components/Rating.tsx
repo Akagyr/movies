@@ -22,7 +22,7 @@ export function Rating({
   isDisabled?: boolean;
 }) {
   const [currentRating, setCurrentRating] = useState<number>(0);
-  const user = useGetCurrentUser();
+  const currentUser = useGetCurrentUser();
 
   useEffect(() => {
     setCurrentRating(rating);
@@ -35,12 +35,12 @@ export function Rating({
   };
 
   const updateRaiting = async (currentRate: number) => {
-    if (user) {
+    if (currentUser) {
       try {
         await updateDBMovieRating({
           movieSlug: movieSlug!,
           rate: currentRate,
-          userSlug: user.slug,
+          userSlug: currentUser.slug,
         });
         setCurrentRating(currentRate);
         toast.success('Рейтинг усешно обновлен!');

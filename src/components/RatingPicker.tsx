@@ -13,16 +13,16 @@ export default function RatingPicker({
   movieRates: Rate[];
 }) {
   const [rating, setRating] = useState<number>(0);
-  const user = useGetCurrentUser();
+  const currentUser = useGetCurrentUser();
 
   useEffect(() => {
-    if (user) {
-      const userRate = movieRates.find((rate) => rate.userSlug === user.slug);
+    if (currentUser) {
+      const userRate = movieRates.find((rate) => rate.userSlug === currentUser.slug);
       if (userRate) {
         setRating(userRate.rate);
       }
     }
-  }, [user, movieRates]);
+  }, [currentUser, movieRates]);
 
   return (
     <>

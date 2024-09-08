@@ -1,22 +1,27 @@
 'use client';
 
 import Image from 'next/image';
-import useGetCurrentUser from '@/hooks/useGetCurrentUser';
 import { signOutWithGoogle, signInWithGoogle } from '@/helpers/authHelper';
+import { useState } from 'react';
+import { User } from '@/lib/types';
 
 export default function HeaderAccount() {
-  const currentUser = useGetCurrentUser();
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+
+  const handleSignIn = async () => {
+    const user = await signInWithGoogle();
+    if (user!) {
+      setCurrentUser(user);
+    }
+  };
 
   const handleSignOut = async () => {
     await signOutWithGoogle();
-  };
-
-  const handleSignIn = async () => {
-    await signInWithGoogle();
+    setCurrentUser(null);
   };
 
   return (
-    <div className='xl:flex justify-center'>
+    <div className='xl:flex justify-center h-[40px] lg:h-[45px]'>
       {currentUser ? (
         <div className='flex items-center gap-[10px] justify-end'>
           <p className='hidden xl:block text-white text-sm'>{currentUser.name}</p>
@@ -28,7 +33,13 @@ export default function HeaderAccount() {
             height={45}
           />
           <button onClick={() => handleSignOut()}>
-            <Image className='max-w-[20px] lg:max-w-[25px]' src='/exitDoor.svg' width={25} height={25} alt='Exit door' />
+            <Image
+              className='max-w-[20px] lg:max-w-[25px]'
+              src='/exitDoor.svg'
+              width={25}
+              height={25}
+              alt='Exit door'
+            />
           </button>
         </div>
       ) : (
