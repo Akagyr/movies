@@ -11,7 +11,7 @@ export default function MobileCollapseSearchForm({ categories }: { categories: C
     <div className='w-full mb-[20px] lg:hidden'>
       <button
         onClick={() => setIsActive(!isActive)}
-        className='flex justify-between w-full text-white font-medium rounded-lg text-sm px-[15px] py-[10px] text-center bg-red-800 relative'
+        className='flex justify-between w-full font-medium rounded-lg text-sm px-[15px] py-[10px] text-center bg-red-hover relative'
       >
         <p className='text-xs'>Випадающий поиск</p>
         <span

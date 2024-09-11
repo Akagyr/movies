@@ -41,7 +41,7 @@ export default function SeeLaterIcon({
   return (
     <button onClick={() => handleClick()}>
       <svg
-        className={`${isActive ? 'fill-red-600' : 'fill-white'} transition-colors duration-300`}
+        className={`${isActive ? 'fill-red-ligther' : 'fill-white'} transition-colors duration-300`}
         xmlns='http://www.w3.org/2000/svg'
         x='0px'
         y='0px'

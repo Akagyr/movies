@@ -24,7 +24,7 @@ export default function HeaderAccount() {
     <div className='xl:flex justify-center h-[40px] lg:h-[45px]'>
       {currentUser ? (
         <div className='flex items-center gap-[10px] justify-end'>
-          <p className='hidden xl:block text-white text-sm'>{currentUser.name}</p>
+          <p className='hidden xl:block text-sm'>{currentUser.name}</p>
           <Image
             className='rounded-full max-w-[40px] lg:max-w-[45px]'
             src={currentUser.photo!}
@@ -45,7 +45,7 @@ export default function HeaderAccount() {
       ) : (
         <button
           onClick={() => handleSignIn()}
-          className='text-red-600 border border-red-600 font-semibold text-xs lg:text-sm rounded-lg px-[12px] lg:px-[15px] py-[8px] lg:py-[10px] text-center hover:bg-red-700 hover:border-red-700 hover:text-white transition duration-200 ease-in-out'
+          className='px-[12px] lg:px-[20px] py-[10px] h-fit bg-red hover:bg-red-hover text-xs lg:text-sm font-semibold text-center rounded-lg transition duration-200 ease-in-out'
         >
           Войти
         </button>

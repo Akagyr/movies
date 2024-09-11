@@ -34,14 +34,14 @@ export default function Pagination({
       <button
         onClick={() => setCurrentPage(1)}
         disabled={currentPage === 1}
-        className='w-[35px] h-[35px] flex justify-center hover:bg-neutral-800 rounded-full text-2xl pointer'
+        className='w-[35px] h-[35px] flex justify-center hover:bg-neutral rounded-full text-2xl pointer'
       >
         «
       </button>
       <button
         onClick={() => setCurrentPage(currentPage - 1)}
         disabled={currentPage === 1}
-        className='w-[35px] h-[35px] flex justify-center hover:bg-neutral-800 rounded-full text-2xl pointer'
+        className='w-[35px] h-[35px] flex justify-center hover:bg-neutral rounded-full text-2xl pointer'
       >
         ‹
       </button>
@@ -49,7 +49,7 @@ export default function Pagination({
         <button
           key={pageNum}
           className={`w-[35px] h-[35px] flex justify-center items-center rounded-full ${
-            currentPage === pageNum ? 'bg-red-800' : 'hover:bg-neutral-800'
+            currentPage === pageNum ? 'bg-red-hover' : 'hover:bg-neutral'
           }`}
           onClick={() => setCurrentPage(pageNum)}
         >
@@ -59,14 +59,14 @@ export default function Pagination({
       <button
         onClick={() => setCurrentPage(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className='w-[35px] h-[35px] flex justify-center hover:bg-neutral-800 rounded-full text-2xl pointer'
+        className='w-[35px] h-[35px] flex justify-center hover:bg-neutral rounded-full text-2xl pointer'
       >
         ›
       </button>
       <button
         onClick={() => setCurrentPage(totalPages)}
         disabled={currentPage === totalPages}
-        className='w-[35px] h-[35px] flex justify-center hover:bg-neutral-800 rounded-full text-2xl pointer'
+        className='w-[35px] h-[35px] flex justify-center hover:bg-neutral rounded-full text-2xl pointer'
       >
         »
       </button>

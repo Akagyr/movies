@@ -44,19 +44,21 @@ export default function SeeLaterList({ movies }: { movies: Movie[] }) {
       {seeLater.length === 0 ? (
         <EmptyItems isAuth={currentUser ? true : false} />
       ) : (
-        <>
-          <h2 className='lg:hidden text-white mb-[10px] font-semibold text-lg lg:text-xl'>
-            Смотреть позже:
-          </h2>
-          <div className='grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-[30px] lg:gap-[40px] justify-items-center'>
-            {showMovies}
+        <div className='h-full flex flex-col gap-[50px] justify-between'>
+          <div>
+            <h2 className='lg:hidden mb-[10px] font-semibold text-lg lg:text-xl'>
+              Смотреть позже:
+            </h2>
+            <div className='grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-[30px] lg:gap-[40px] justify-items-center'>
+              {showMovies}
+            </div>
           </div>
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
             setCurrentPage={setCurrentPage}
           />
-        </>
+        </div>
       )}
     </>
   );
