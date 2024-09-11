@@ -20,7 +20,7 @@ export default function MoviesList({ movies }: { movies: Movie[] }) {
   ));
 
   return (
-    <>
+    <div className='h-full flex flex-col gap-[50px] justify-between'>
       <div className='grid grid-cols-2 sm:grid-cols-3 2xl:grid-cols-4 gap-[30px] xl:gap-[40px] justify-items-center'>
         {showMovieCards}
       </div>
@@ -29,6 +29,6 @@ export default function MoviesList({ movies }: { movies: Movie[] }) {
         totalPages={totalPages}
         setCurrentPage={setCurrentPage}
       />
-    </>
+    </div>
   );
 }

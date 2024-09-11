@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 export default function MovieInfo({ movie }: { movie: Movie }) {
   const ratingSum = movie.rates.reduce((sum, rate) => sum + rate.rate, 0);
+  const ratingAvg = ratingSum / movie.rates.length;
 
   return (
     <div className='lg:flex lg:gap-[80px] lg:items-center w-fit'>
@@ -16,7 +17,7 @@ export default function MovieInfo({ movie }: { movie: Movie }) {
       />
       <div className='flex flex-col gap-[20px]'>
         <h2 className='text-xl lg:text-2xl font-bold mt-[10px] md:mt-0'>{movie.name}</h2>
-        <RatingWithText rating={ratingSum / movie.rates.length} />
+        <RatingWithText rating={ratingAvg ? ratingAvg : 0} />
         <div className='flex'>
           <p className='text-sm lg:text-base font-bold mr-[10px]'>Дата выхода:</p>
           <p className='text-sm lg:text-base'>{movie.release_date}</p>

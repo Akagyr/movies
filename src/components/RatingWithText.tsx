@@ -1,7 +1,7 @@
 import { Rating } from './Rating';
 
 export default function RatingWithText({
-  rating = 0,
+  rating,
   readOnly = true,
   maxWidth = 90,
 }: {

@@ -29,7 +29,7 @@ export default function RootLayout({
         />
         <div className='lg:grid lg:grid-cols-[20%_1fr] xl:grid-cols-[18%_1fr] 2xl:grid-cols-[16%_1fr] lg:overflow-hidden h-full'>
           <Sidebar />
-          <main className='px-[30px] lg:px-[80px] py-[20px] lg:py-[40px] overflow-y-auto'>
+          <main className='px-[30px] lg:px-[80px] my-[20px] lg:my-[50px] overflow-y-auto'>
             {children}
           </main>
         </div>
