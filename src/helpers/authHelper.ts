@@ -1,4 +1,4 @@
-import { signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
+import { signInWithPopup, GoogleAuthProvider, signOut, setPersistence, browserSessionPersistence } from 'firebase/auth';
 
 import { auth } from '@/database/firebase';
 import { addDBUser } from '@/database/databaseServices';
@@ -6,6 +6,7 @@ import { User } from '@/lib/types';
 import { slugCreate } from './slugHelper';
 
 export const signInWithGoogle = async (): Promise<User | null> => {
+  await setPersistence(auth, browserSessionPersistence);
   const provider = new GoogleAuthProvider();
   try {
     const result = await signInWithPopup(auth, provider);
@@ -20,7 +21,6 @@ export const signInWithGoogle = async (): Promise<User | null> => {
       seeLater: [],
     };
     await addDBUser({ user: user });
-    sessionStorage.setItem('loginAccess', user.slug);
     return user;
   } catch (error) {
     console.error('Error signing in with Google:', error);
@@ -31,7 +31,6 @@ export const signInWithGoogle = async (): Promise<User | null> => {
 export const signOutWithGoogle = async () => {
   try {
     await signOut(auth);
-    sessionStorage.removeItem('loginAccess');
   } catch (error) {
     console.error('Error signing out:', error);
   }

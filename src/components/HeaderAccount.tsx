@@ -2,22 +2,18 @@
 
 import Image from 'next/image';
 import { signOutWithGoogle, signInWithGoogle } from '@/helpers/authHelper';
+import useGetCurrentUser from '@/hooks/useGetCurrentUser';
 import { useState } from 'react';
-import { User } from '@/lib/types';
 
 export default function HeaderAccount() {
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const currentUser = useGetCurrentUser();
 
   const handleSignIn = async () => {
-    const user = await signInWithGoogle();
-    if (user!) {
-      setCurrentUser(user);
-    }
+    await signInWithGoogle();
   };
 
   const handleSignOut = async () => {
     await signOutWithGoogle();
-    setCurrentUser(null);
   };
 
   return (

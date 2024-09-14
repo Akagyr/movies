@@ -49,7 +49,7 @@ export default function Pagination({
         <button
           key={pageNum}
           className={`w-[35px] h-[35px] flex justify-center items-center rounded-full ${
-            currentPage === pageNum ? 'bg-red-hover' : 'hover:bg-neutral'
+            currentPage === pageNum ? 'bg-red' : 'hover:bg-neutral'
           }`}
           onClick={() => setCurrentPage(pageNum)}
         >
