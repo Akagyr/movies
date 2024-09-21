@@ -9,7 +9,7 @@ export default function Pagination({
 }: {
   currentPage: number;
   totalPages: number;
-  setCurrentPage: (value: number) => void;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const [currentPages, setCurrentPages] = useState<number[]>([]);
 

@@ -3,6 +3,7 @@ import { getDBMovie } from '@/database/databaseServices';
 import YoutubeTrailer from '@/components/YoutubeTrailer';
 import MovieInfo from '@/components/MovieInfo';
 import RatingPicker from '@/components/RatingPicker';
+import Comments from '@/components/Comments';
 
 export const dynamicParams = false;
 
@@ -22,6 +23,9 @@ export default async function Movie(params: { params: { movieSlug: string } }) {
       </div>
       <div className='mt-[30px]'>
         <RatingPicker movieSlug={movie.slug} movieRates={movie.rates} />
+      </div>
+      <div className='mt-[50px] flex flex-col gap-[30px]'>
+        <Comments comments={movie.comments} movieSlug={movie.slug} />
       </div>
     </>
   );

@@ -4,7 +4,6 @@ import { slugCreate } from '@/helpers/slugHelper';
 import { User } from '@/lib/types';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
 
 export default function useGetCurrentUser() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);

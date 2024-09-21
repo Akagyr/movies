@@ -5,13 +5,12 @@ import {
   getDocs,
   Query,
   DocumentSnapshot,
-  DocumentReference,
   DocumentData,
   updateDoc,
   arrayUnion,
 } from 'firebase/firestore';
 import { db } from '@/database/firebase';
-import { Favourite, Movie, SeeLater, User } from '@/lib/types';
+import { Comment, Favourite, Movie, SeeLater, User } from '@/lib/types';
 
 export async function getDBCollection(collection: Query<DocumentData, DocumentData>) {
   try {
@@ -19,18 +18,7 @@ export async function getDBCollection(collection: Query<DocumentData, DocumentDa
     const data = querySnapshot.docs.map((doc) => ({ ...doc.data() }));
     return data;
   } catch (error) {
-    console.error('Error getting selected documents:', error);
-    return null;
-  }
-}
-
-export async function getDBElement(collection: DocumentReference<DocumentData, DocumentData>) {
-  try {
-    const document: DocumentSnapshot<DocumentData> = await getDoc(collection);
-    const docData = document.data();
-    return docData;
-  } catch (error) {
-    console.error('Error getting selected document:', error);
+    console.error('Error get collection:', error);
     return null;
   }
 }
@@ -43,7 +31,7 @@ export async function getDBMovie(movieSlug: string) {
 
     return movie;
   } catch (error) {
-    console.error(`Error fetch movie with id - ${movieSlug}:`, error);
+    console.error(`Error get movie with id - ${movieSlug}:`, error);
   }
 }
 
@@ -98,7 +86,7 @@ export async function updateDBMovieRating({
       }
     }
   } catch (error) {
-    console.error(`Error updating rating for movie with id - ${movieSlug}:`, error);
+    console.error(`Error update rating for movie with id - ${movieSlug}:`, error);
   }
 }
 
@@ -140,7 +128,7 @@ export async function updateDBFavourites({
     }
     return 'success';
   } catch (error) {
-    console.error(`Error add favourite film to user with id - ${userSlug}:`, error);
+    console.error(`Error add favourite movie with id ${movieSlug} to user with id ${userSlug}:`, error);
     return 'failure';
   }
 }
@@ -181,7 +169,40 @@ export async function updateDBSeeLater({
     }
     return 'success';
   } catch (error) {
-    console.error(`Error add see later film to user with id - ${userSlug}:`, error);
+    console.error(`Error add see later movie with id ${movieSlug} to user with id ${userSlug}:`, error);
+    return 'failure';
+  }
+}
+
+export async function updateDBComments({
+  movieSlug,
+  comment,
+}: {
+  movieSlug: string;
+  comment: Comment;
+}) {
+  try {
+    let updatedComments: Comment[] = [];
+
+    const movieDocRef = doc(db, 'movies', movieSlug);
+    const movieDocSnapshot = await getDoc(movieDocRef);
+
+    if (movieDocSnapshot.exists()) {
+      const movieData = movieDocSnapshot.data() as Movie;
+      if (movieData.comments && movieData.comments.length !== 0) {
+        const currentComments = [...movieData.comments];
+        updatedComments = [...currentComments, comment];
+      } else {
+        updatedComments.push(comment);
+      }
+
+      await updateDoc(doc(db, 'movies', movieSlug), {
+        comments: updatedComments,
+      });
+    }
+    return 'success';
+  } catch (error) {
+    console.error(`Error update comments to film with id - ${movieSlug}:`, error);
     return 'failure';
   }
 }
