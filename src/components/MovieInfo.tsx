@@ -1,10 +1,13 @@
 import { Movie } from '@/lib/types';
 import RatingWithText from '@/components/RatingWithText';
 import Image from 'next/image';
+import convertDate from '@/helpers/convertDateHelper';
 
 export default function MovieInfo({ movie }: { movie: Movie }) {
   const ratingSum = movie.rates.reduce((sum, rate) => sum + rate.rate, 0);
   const ratingAvg = ratingSum / movie.rates.length;
+
+  const convertedDate = convertDate(movie.release_date);
 
   return (
     <div className='lg:flex lg:gap-[80px] lg:items-center w-fit'>
@@ -20,7 +23,7 @@ export default function MovieInfo({ movie }: { movie: Movie }) {
         <RatingWithText rating={ratingAvg ? ratingAvg : 0} />
         <div className='flex'>
           <p className='text-sm lg:text-base font-bold mr-[10px]'>Дата выхода:</p>
-          <p className='text-sm lg:text-base'>{movie.release_date}</p>
+          <p className='text-sm lg:text-base'>{convertedDate}</p>
         </div>
         <div className='flex'>
           <p className='text-sm lg:text-base font-bold mr-[10px]'>Категории:</p>

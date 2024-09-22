@@ -42,7 +42,7 @@ export default function FavouritesList({ movies }: { movies: Movie[] }) {
   return (
     <>
       {favourites.length === 0 ? (
-        <EmptyItems isAuth={currentUser ? true : false} />
+        <EmptyItems />
       ) : (
         <div className='h-full flex flex-col gap-[50px] justify-between'>
           <div>

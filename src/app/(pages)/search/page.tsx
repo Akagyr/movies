@@ -4,6 +4,7 @@ import { Movie } from '@/lib/types';
 import MovieCard from '@/components/MovieCard';
 import { getDBCollection } from '@/database/databaseServices';
 import { redirect } from 'next/navigation';
+import convertDate from '@/helpers/convertDateHelper';
 
 export const revalidate = 0;
 
@@ -37,7 +38,10 @@ export default async function Search({
   }
 
   if (year) {
-    filteredMovies = filteredMovies.filter((movie) => movie.release_date.includes(year));
+    filteredMovies = filteredMovies.filter((movie) => {
+      const convertedDate = convertDate(movie.release_date);
+      return convertedDate.includes(year);
+    });
   }
 
   if (filteredMovies.length === 0) {

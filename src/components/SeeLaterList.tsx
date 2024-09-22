@@ -42,7 +42,7 @@ export default function SeeLaterList({ movies }: { movies: Movie[] }) {
   return (
     <>
       {seeLater.length === 0 ? (
-        <EmptyItems isAuth={currentUser ? true : false} />
+        <EmptyItems />
       ) : (
         <div className='h-full flex flex-col gap-[50px] justify-between'>
           <div>

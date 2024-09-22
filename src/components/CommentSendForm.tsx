@@ -1,5 +1,5 @@
 import { updateDBComments } from '@/database/databaseServices';
-import { slugCreate } from '@/helpers/slugHelper';
+import { createSlug } from '@/helpers/createSlugHelper';
 import useGetCurrentUser from '@/hooks/useGetCurrentUser';
 import { Comment } from '@/lib/types';
 import { useState } from 'react';
@@ -20,7 +20,7 @@ export default function CommentSendForm({
 
     if (currentUser && commentText.trim()) {
       const date: number = Date.now();
-      const slug: string = slugCreate(`${currentUser.name}-${date}`);
+      const slug: string = createSlug(`${currentUser.name}-${date}`);
 
       const newComment: Comment = {
         slug: slug,

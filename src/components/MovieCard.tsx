@@ -7,6 +7,7 @@ import FavouriteIcon from './FavouriteIcon';
 import SeeLaterIcon from './SeeLaterIcon';
 import { usePathname } from 'next/navigation';
 import RatingWithText from './RatingWithText';
+import convertDate from '@/helpers/convertDateHelper';
 
 export default function MovieCard({
   movie,
@@ -20,6 +21,8 @@ export default function MovieCard({
   const pathname = usePathname();
   const ratingSum = movie.rates.reduce((sum, rate) => sum + rate.rate, 0);
   const ratingAvg = ratingSum / movie.rates.length;
+
+  const convertedDate = convertDate(movie.release_date);
 
   return (
     <div className='max-w-[270px] bg-gray lg:hover:scale-[1.01] lg:hover:transition lg:hover:duration-500 lg:hover:ease-out rounded-lg shadow relative'>
@@ -43,7 +46,7 @@ export default function MovieCard({
         <div className='p-[15px] lg:p-[20px] flex flex-col gap-[15px]'>
           <h2 className='text-lg lg:text-2xl font-bold tracking-tight'>{movie.name}</h2>
           <RatingWithText rating={ratingAvg ? ratingAvg : 0} />
-          <p className='text-xs lg:text-base text-gray-ligther'>{movie.release_date}</p>
+          <p className='text-xs lg:text-base text-gray-ligther'>{convertedDate}</p>
           <p className='text-xs lg:text-base text-gray-ligther'>{movie.category}</p>
           <p className='text-xs lg:text-base text-gray-ligther'>{movie.duration}</p>
         </div>

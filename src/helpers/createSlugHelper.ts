@@ -1,6 +1,6 @@
 import slugify from 'slugify';
 
-export function slugCreate(text: string) {
+export function createSlug(text: string) {
   const slug = slugify(text, {
     lower: true,
     strict: true,

@@ -3,14 +3,14 @@ import { signInWithPopup, GoogleAuthProvider, signOut, setPersistence, browserSe
 import { auth } from '@/database/firebase';
 import { addDBUser } from '@/database/databaseServices';
 import { User } from '@/lib/types';
-import { slugCreate } from './slugHelper';
+import { createSlug } from './createSlugHelper';
 
 export const signInWithGoogle = async (): Promise<User | null> => {
   await setPersistence(auth, browserSessionPersistence);
   const provider = new GoogleAuthProvider();
   try {
     const result = await signInWithPopup(auth, provider);
-    const slug = slugCreate(`${result.user.displayName}-${result.user.uid}`);
+    const slug = createSlug(`${result.user.displayName}-${result.user.uid}`);
     const user: User = {
       slug: slug,
       name: result.user.displayName!,

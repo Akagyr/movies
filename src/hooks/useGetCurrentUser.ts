@@ -1,6 +1,6 @@
 import { getDBUser } from '@/database/databaseServices';
 import { auth } from '@/database/firebase';
-import { slugCreate } from '@/helpers/slugHelper';
+import { createSlug } from '@/helpers/createSlugHelper';
 import { User } from '@/lib/types';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect, useState } from 'react';
@@ -11,7 +11,7 @@ export default function useGetCurrentUser() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
-        const slug = slugCreate(`${user.displayName}-${user.uid}`);
+        const slug = createSlug(`${user.displayName}-${user.uid}`);
         const userData = (await getDBUser({ slug })) as User;
         if (userData) {
           setCurrentUser(userData);
