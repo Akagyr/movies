@@ -4,7 +4,7 @@ import { Movie } from '@/lib/types';
 import MovieCard from '@/components/MovieCard';
 import { getDBCollection } from '@/database/databaseServices';
 import { redirect } from 'next/navigation';
-import convertDate from '@/helpers/convertDateHelper';
+import { convertTimestampToDate } from '@/helpers/convertTimestampToDateHelper';
 
 export const revalidate = 0;
 
@@ -39,13 +39,13 @@ export default async function Search({
 
   if (year) {
     filteredMovies = filteredMovies.filter((movie) => {
-      const convertedDate = convertDate(movie.release_date);
+      const convertedDate = convertTimestampToDate(movie.release_date);
       return convertedDate.includes(year);
     });
   }
 
   if (filteredMovies.length === 0) {
-    return <div>По вашему поиску фильмов нету!</div>
+    return <div>По вашему поиску фильмов нету!</div>;
   }
 
   const showMovieCards = filteredMovies.map((movie: Movie) => (

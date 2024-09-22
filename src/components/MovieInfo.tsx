@@ -1,13 +1,13 @@
 import { Movie } from '@/lib/types';
 import RatingWithText from '@/components/RatingWithText';
 import Image from 'next/image';
-import convertDate from '@/helpers/convertDateHelper';
+import { convertTimestampToDate } from '@/helpers/convertTimestampToDateHelper';
 
 export default function MovieInfo({ movie }: { movie: Movie }) {
   const ratingSum = movie.rates.reduce((sum, rate) => sum + rate.rate, 0);
   const ratingAvg = ratingSum / movie.rates.length;
 
-  const convertedDate = convertDate(movie.release_date);
+  const convertedDate = convertTimestampToDate(movie.release_date);
 
   return (
     <div className='lg:flex lg:gap-[80px] lg:items-center w-fit'>

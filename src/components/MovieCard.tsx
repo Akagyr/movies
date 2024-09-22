@@ -7,7 +7,7 @@ import FavouriteIcon from './FavouriteIcon';
 import SeeLaterIcon from './SeeLaterIcon';
 import { usePathname } from 'next/navigation';
 import RatingWithText from './RatingWithText';
-import convertDate from '@/helpers/convertDateHelper';
+import { convertTimestampToDate } from '@/helpers/convertTimestampToDateHelper';
 
 export default function MovieCard({
   movie,
@@ -22,7 +22,7 @@ export default function MovieCard({
   const ratingSum = movie.rates.reduce((sum, rate) => sum + rate.rate, 0);
   const ratingAvg = ratingSum / movie.rates.length;
 
-  const convertedDate = convertDate(movie.release_date);
+  const convertedDate = convertTimestampToDate(movie.release_date);
 
   return (
     <div className='max-w-[270px] bg-gray lg:hover:scale-[1.01] lg:hover:transition lg:hover:duration-500 lg:hover:ease-out rounded-lg shadow relative'>
