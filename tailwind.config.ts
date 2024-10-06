@@ -16,6 +16,7 @@ const config: Config = {
         'gray': '#141313',
         'gray-ligther': '#9ca3af',
         'neutral': '#262626',
+        'neutral-darken': '#171818',
         'red': '#b91c1c',
         'red-hover': '#991b1b',
         'red-ligther': '#dc2626',

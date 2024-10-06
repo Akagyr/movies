@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --swiper-theme-color: #b91c1c;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #b91c1c !important;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: #b91c1c !important;
+  }
+
 body {
     background-color: #100f12;
     color: #fff;

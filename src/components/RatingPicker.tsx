@@ -3,7 +3,7 @@
 import { Rating } from '@/components/Rating';
 import useGetCurrentUser from '@/hooks/useGetCurrentUser';
 import { Rate } from '@/lib/types';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function RatingPicker({
   movieSlug,
@@ -26,7 +26,7 @@ export default function RatingPicker({
 
   return (
     <>
-      <p className='text-sm lg:text-base mb-[5px]'>Ваша оценка:</p>
+      <p className='text-sm lg:text-base mb-[5px]'>Оценка фильма:</p>
       <Rating rating={rating} maxWidth={260} itemsCount={10} movieSlug={movieSlug} />
     </>
   );

@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { signOutWithGoogle, signInWithGoogle } from '@/helpers/authHelper';
 import useGetCurrentUser from '@/hooks/useGetCurrentUser';
-import { useState } from 'react';
 
 export default function HeaderAccount() {
   const currentUser = useGetCurrentUser();

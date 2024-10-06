@@ -3,11 +3,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Movie } from '@/lib/types';
-import FavouriteIcon from './FavouriteIcon';
-import SeeLaterIcon from './SeeLaterIcon';
 import { usePathname } from 'next/navigation';
 import RatingWithText from './RatingWithText';
-import { convertTimestampToDate } from '@/helpers/convertTimestampToDateHelper';
+import FavouriteButton from './FavouriteButton';
+import SeeLaterButton from './SeeLaterButton';
 
 export default function MovieCard({
   movie,
@@ -22,31 +21,30 @@ export default function MovieCard({
   const ratingSum = movie.rates.reduce((sum, rate) => sum + rate.rate, 0);
   const ratingAvg = ratingSum / movie.rates.length;
 
-  const convertedDate = convertTimestampToDate(movie.release_date);
 
   return (
-    <div className='max-w-[270px] bg-gray lg:hover:scale-[1.01] lg:hover:transition lg:hover:duration-500 lg:hover:ease-out rounded-lg shadow relative'>
+    <div className='max-w-[250px] bg-gray lg:hover:scale-[1.01] lg:hover:transition lg:hover:duration-500 lg:hover:ease-out rounded-lg shadow relative'>
       <div className='absolute top-0 right-0 flex gap-[7px] bg-gray/85 px-[7px] py-[5px] rounded-bl-lg z-1'>
         {pathname !== '/seeLater' && (
-          <FavouriteIcon movieSlug={movie.slug} updateFavourites={updateFavourites} />
+          <FavouriteButton type={'icon'} movieSlug={movie.slug} updateFavourites={updateFavourites} />
         )}
         {pathname !== '/favourites' && (
-          <SeeLaterIcon movieSlug={movie.slug} updateSeeLater={updateSeeLater} />
+          <SeeLaterButton type={'icon'} movieSlug={movie.slug} updateSeeLater={updateSeeLater} />
         )}
       </div>
       <Link href={`${movie.slug}`}>
         <Image
           className='rounded-t-lg w-full aspect-[3/4]'
-          width='270'
-          height='380'
+          width='354'
+          height='470'
           src={movie.image}
           alt={movie.name}
           priority
         />
-        <div className='p-[15px] lg:p-[20px] flex flex-col gap-[15px]'>
-          <h2 className='text-lg lg:text-2xl font-bold tracking-tight'>{movie.name}</h2>
+        <div className='p-[15px] flex flex-col gap-[15px]'>
+          <h2 className='text-md lg:text-xl font-medium tracking-tight'>{movie.name}</h2>
           <RatingWithText rating={ratingAvg ? ratingAvg : 0} />
-          <p className='text-xs lg:text-base text-gray-ligther'>{convertedDate}</p>
+          <p className='text-xs lg:text-base text-gray-ligther'>{movie.release_date}</p>
           <p className='text-xs lg:text-base text-gray-ligther'>{movie.category}</p>
           <p className='text-xs lg:text-base text-gray-ligther'>{movie.duration}</p>
         </div>

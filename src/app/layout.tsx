@@ -7,9 +7,10 @@ import MobileNavMenu from '@/components/MobileNavMenu';
 import '@smastrom/react-rating/style.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import 'swiper/swiper-bundle.css';
 
 export const metadata: Metadata = {
-  title: 'Movie trailers',
+  title: 'Movie.Trailers',
   description: 'Movie trailers',
 };
 
@@ -29,7 +30,7 @@ export default function RootLayout({
         />
         <div className='lg:grid lg:grid-cols-[20%_1fr] xl:grid-cols-[18%_1fr] 2xl:grid-cols-[16%_1fr] lg:overflow-hidden h-full'>
           <Sidebar />
-          <main className='px-[30px] lg:px-[80px] my-[20px] lg:my-[50px] overflow-y-auto'>
+          <main className='px-[30px] lg:px-[130px] pt-[20px] pb-[70px] lg:py-[50px] overflow-y-auto'>
             {children}
           </main>
         </div>

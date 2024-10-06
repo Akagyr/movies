@@ -20,8 +20,8 @@ export default function MoviesList({ movies }: { movies: Movie[] }) {
   ));
 
   return (
-    <div className='h-full flex flex-col gap-[50px] justify-between'>
-      <div className='grid grid-cols-2 sm:grid-cols-3 2xl:grid-cols-4 gap-[30px] xl:gap-[40px] justify-items-center'>
+    <div className='mt-[30px]'>
+      <div className='grid grid-cols-2 sm:grid-cols-3 2xl:grid-cols-4 gap-[30px] xl:gap-[40px] justify-items-center mb-[50px]'>
         {showMovieCards}
       </div>
       <Pagination

@@ -2,7 +2,7 @@
 
 import useGetCurrentUser from '@/hooks/useGetCurrentUser';
 import { Favourite, Movie } from '@/lib/types';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MovieCard from './MovieCard';
 import EmptyItems from './EmptyItems';
 import Pagination from './Pagination';

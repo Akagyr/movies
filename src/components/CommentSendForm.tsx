@@ -47,7 +47,7 @@ export default function CommentSendForm({
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className='w-full rounded-lg bg-neutral'>
+      <div className='w-full rounded-xl bg-neutral-darken'>
         <div className='size-full rounded-t-lg'>
           <textarea
             name='comment'
@@ -58,9 +58,9 @@ export default function CommentSendForm({
             onChange={(e) => setCommentText(e.target.value)}
           />
         </div>
-        <div className='flex items-center justify-between p-[10px] border-t'>
-          <button type='button' className='text-gray-500 rounded cursor-pointer text-2xl'>
-            🙂
+        <div className='flex items-center justify-between p-[10px] border-t-[2px] border-gray-ligther'>
+          <button type='button' className='text-gray-500 rounded cursor-pointer text-3xl'>
+            ☺
           </button>
           <button
             type='submit'

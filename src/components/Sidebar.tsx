@@ -15,8 +15,8 @@ export default function Sidebar() {
   return (
     <aside className='hidden h-full lg:flex flex-col gap-[10px] bg-gray text-center'>
       <LinkSidebar text='Домой' link='/' />
-      <LinkSidebar text='Посмотреть позже' link='seeLater' />
-      <LinkSidebar text='Понравившиеся' link='favourites' />
+      <LinkSidebar text='Избранное' link='favourites' />
+      <LinkSidebar text='Смотреть позже' link='seeLater' />
     </aside>
   );
 }

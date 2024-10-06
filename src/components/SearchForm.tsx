@@ -37,18 +37,18 @@ export default function SearchForm({ categories }: { categories: Category[] }) {
           value={selectedName}
           onChange={(e) => setSelectedName(e.target.value)}
           placeholder='Название'
-          className='text-xs lg:text-sm rounded-lg block w-full py-2 px-3 bg-neutral placeholder-gray-ligther'
+          className='text-xs lg:text-sm rounded-lg block w-full py-[10px] px-[15px] bg-neutral placeholder-gray-ligther'
         />
       </div>
       <div className='lg:w-[180px]'>
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
-          className={`cursor-pointer text-xs lg:text-sm rounded-lg block w-full py-2 px-3 bg-neutral ${
+          className={`cursor-pointer text-xs lg:text-sm rounded-lg block w-full py-[10px] px-[10px] bg-neutral ${
             selectedCategory === '' && 'text-gray-ligther'
           }`}
         >
-          <option value=''>Категория</option>
+          <option value=''>Жанр</option>
           {categories.map((cat) => (
             <option key={cat.slug} value={cat.name}>
               {cat.name}
@@ -60,7 +60,7 @@ export default function SearchForm({ categories }: { categories: Category[] }) {
         <select
           value={selectedYear}
           onChange={(e) => setSelectedYear(e.target.value)}
-          className={`cursor-pointer text-xs lg:text-sm rounded-lg block w-full py-2 px-3 bg-neutral ${
+          className={`cursor-pointer text-xs lg:text-sm rounded-lg block w-full py-[10px] px-[10px] bg-neutral ${
             selectedYear === '' && 'text-gray-ligther'
           }`}
         >
